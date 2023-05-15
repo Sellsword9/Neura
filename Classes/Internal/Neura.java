@@ -6,6 +6,7 @@
 package Classes.Internal;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.function.Function;
 
 public class Neura {
     private double weight;
@@ -38,43 +39,50 @@ public class Neura {
         Neura neuralNetwork = new Neura();
 
         // Inicial training section
+        Function<Double, Double> function = (x) -> (x * 2) + 1;
         double input = 2.0;
-        double target = 5.0;
+        double target = function.apply(input);
         for (int i = 0; i < 1000000; i++) {
             neuralNetwork.train(input, target);
         }
         input = 4.0;
-        target = 9.0;
+        target = function.apply(input);
         for (int i = 0; i < 1000000; i++) {
             neuralNetwork.train(input, target);
         }
         input = 3.0;
-        target = 7.0;
+        target = function.apply(input);
         for (int i = 0; i < 1000000; i++) {
             neuralNetwork.train(input, target);
         }
         input = 5.0;
-        target = 11.0;
+        target = function.apply(input);
         for (int i = 0; i < 1000000; i++) {
             neuralNetwork.train(input, target);
         }
         // Prediction
         double testInput = new Random().nextInt(0, 11);
         double predictedOutput = neuralNetwork.predict(testInput);
+        double expectedOutput = function.apply(testInput);
 
         System.out.println("Input: " + testInput);
         System.out.println("First predicted Output: " + predictedOutput);
         System.out.println("Introduce 1 to continue training:");
-        if (new Scanner(System.in).nextInt() == 1) {
+        Scanner sc = new Scanner(System.in);
+        if (sc.nextLine().trim().equals("1")) {
             int counter = 0;
-            while (!(Math.abs(predictedOutput - (testInput * 2 + 1)) < 0.001)) {
-                neuralNetwork.train(testInput, testInput * 2 + 1);
+            while (!(Math.abs(predictedOutput - expectedOutput) < 0.001)) {
+                neuralNetwork.train(testInput, expectedOutput);
                 predictedOutput = neuralNetwork.predict(testInput);
                 System.out.println("Predicted Output: " + predictedOutput);
-                System.out.println("Current bias and weight (should be 1 and 2): " + neuralNetwork.bias + ", " + neuralNetwork.weight);
+                System.out.println("Current bias and weight: " + neuralNetwork.bias + ", " + neuralNetwork.weight);
                 counter++;
             }
             System.out.println("Number of iterations needed: " + counter);
+        }
+        else {
+            sc.close();
+            System.out.println("Bye!");
         }
     }
 }
