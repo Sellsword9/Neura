@@ -39,7 +39,7 @@ public class Neura {
         Neura neuralNetwork = new Neura();
 
         // Inicial training section
-        Function<Double, Double> function = (x) -> (x * 2) + 1;
+        Function<Double, Double> function = (x) -> (10 * x) + 1;
         double input = 2.0;
         double target = function.apply(input);
         for (int i = 0; i < 1000000; i++) {
@@ -66,6 +66,7 @@ public class Neura {
         double expectedOutput = function.apply(testInput);
 
         System.out.println("Input: " + testInput);
+        System.out.println("Correct output: " + function.apply(testInput));
         System.out.println("First predicted Output: " + predictedOutput);
         System.out.println("Introduce 1 to continue training:");
         Scanner sc = new Scanner(System.in);
