@@ -1,4 +1,4 @@
-# Neura
+# Neura v1.0
 
 # How to execute first version Neura:
 ## Compile: 
