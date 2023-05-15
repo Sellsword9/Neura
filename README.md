@@ -2,10 +2,10 @@
 
 # How to execute first version Neura:
 ## Compile: 
-``javac classes/internal/Neura.java``
+``javac Classes/Internal/Neura.java``
 
 ## Execute:
-``java classes/internal/neura``<br>
+``java Classes/Internal/Neura``<br>
 Copyable:
-``javac classes/internal/Neura.java;
-  java classes/internal/Neura``
+``javac Classes/Internal/Neura.java;
+  java Classes/Internal/Neura``
