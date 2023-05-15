@@ -5,7 +5,7 @@
 ``javac classes/internal/Neura.java``
 
 ## Execute:
-``java classes/internal/neura``
+``java classes/internal/neura``<br>
 Copyable:
 ``javac classes/internal/Neura.java
   java classes/internal/Neura``
