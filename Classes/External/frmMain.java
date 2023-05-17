@@ -4,13 +4,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class frmVentana {
+public class frmMain {
     private JFrame frame;
     private JTextField inputField;
     private JButton submitButton;
     private JTextArea outputArea;
 
-    public frmVentana() {
+    public frmMain() {
         // Create the main frame
         frame = new JFrame("Neural Network Interface");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class frmVentana {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new frmVentana();
+                new frmMain();
             }
         });
     }
