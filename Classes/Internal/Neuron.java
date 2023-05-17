@@ -1,27 +1,27 @@
 package Classes.Internal;
 
-public abstract class Neuron {
-    private double weight;
-    private double bias;
+public class Neuron {
+    private double [] weight;
+    private double[] bias;
 
-    public Neuron(double w, double bias) {
-        this.weight = w;
-        this.bias = bias;
+    public Neuron(double[] weight , double[] bias) {
+        
     }
     public Neuron() {
-        this(1, 1);
+        
     }
 
-    public double predict(double input)
+    public double predict(NeuraInput input)
     {
-        double out = (input * weight) + bias;
-        return out;
+        throw new UnsupportedOperationException("stub");
+        // if input.Grade()
     }
 
     public void train(double input, double target, double lr) {
-        double predicted = predict(input);
-        double error = target - predicted;
-        this.weight += (input * error * lr);
-        this.bias += (error * lr);
+        throw new UnsupportedOperationException("stub");
+       // double predicted = predict(input);
+       // double error = target - predicted;
+       // this.weight += (input * error * lr);
+       // this.bias += (error * lr);
     }
 }
