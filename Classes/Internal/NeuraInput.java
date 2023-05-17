@@ -5,12 +5,30 @@ import java.util.List;
 
 public class NeuraInput {
     private Neuron source;
-    private Neuron[] neurons;
-    private List<Double> inputs;
-    private int grade;
+    private List<Neuron> receivers;
+    private Double value;
+    private int index;
 
-    public static NeuraInput CreateInput(NeuraInput base, double input, Neuron src) {
-        return null;
+    public int getIndex() {
+        return index;
+    }
+
+    public NeuraInput(double value, Neuron src) {
+        this.source = src;
+        this.receivers = new ArrayList<>();
+        this.value = value;
+    }
+    /**
+     * Builds a new input data and assigns it to the network
+     * @param layer The neuron layer to assign the input to
+     * @param input The input value
+     * @param src The neuron from which the input comes from
+     * @return
+     */
+    public static NeuraInput createInput(NeuraLayer layer, double input, Neuron src) {
+        NeuraInput ni = new NeuraInput(input, src);
+        layer.addNeuraInput(ni);
+        return ni;
     }
 
 
@@ -18,17 +36,13 @@ public class NeuraInput {
      * 
      * @return The amount of inputs (1-many)
      */
-    public int Grade()
-    {
-        return grade;
-    }
     /**
      * 
      * @return The neurons this input is attached to
      */
-    public Neuron[] getNeurons()
+    public List<Neuron> getReceivers()
     {
-        return neurons;
+        return receivers;
     }
 
     /**
@@ -38,10 +52,15 @@ public class NeuraInput {
      * 
      */
     public Neuron getNeuron(){
-        return neurons[0];
+        return receivers.get(0);
     }
 
     public Neuron getSource() {
         return source;
     }
+
+    public double getValue() {
+        return value;
+    }
+
 }

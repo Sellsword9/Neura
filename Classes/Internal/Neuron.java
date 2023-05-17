@@ -1,41 +1,53 @@
 package Classes.Internal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Neuron {
-    private double[] weight;
-    private double[] bias;
+    private List<Double> weights;
+    private List<Double> biases;
 
-    public Neuron(double[] weight , double[] bias) {
-        
+    public Neuron(List<Double> weight , List<Double> bias) {
+        this.weights = weight;
+        this.biases = bias;
     }
+
     public Neuron() {
-        
+        this.weights = new ArrayList<>();
+        this.biases = new ArrayList<>();
+        this.weights.add(1.0);
+        this.biases.add(0.0);
     }
-
+    
     public double predict(NeuraInput input)
     {
-        throw new UnsupportedOperationException("stub");
-        // if input.Grade()
+        int index = input.getIndex();
+        return input.getValue() * weights.get(index) + biases.get(index);
     }
 
-    public void train(double input, double target, double lr) {
-        throw new UnsupportedOperationException("stub");
-       // double predicted = predict(input);
-       // double error = target - predicted;
-       // this.weight += (input * error * lr);
-       // this.bias += (error * lr);
+    public void train(NeuraInput input, double target, double lr) {
+        int index = input.getIndex();
+        double weightAtIndex = weights.get(index);
+        double biasAtIndex = biases.get(index);
+        double predict = predict(input);
+        double error = target - predict;
+        double correctedWeight = weightAtIndex + error * input.getValue() * lr;
+        weights.set(index, correctedWeight);
+        double correctedBias = biasAtIndex + error * lr;
+        biases.set(index, correctedBias);
     }
 
-    public double[] getWeights() {
-        return weight;
+    public List<Double> getWeights() {
+        return weights;
     }
     public double getWeightAtIndex(int index) {
-        return weight[index];
+        return weights.get(index);
     }
-    public double[] getBias() {
-        return weight;
+    public List<Double> getBiases() {
+        return biases;
     }
     public double getBiasAtIndex(int index) {
-        return weight[index];
+        return weights.get(index);
     }
 
 }
