@@ -2,7 +2,6 @@ package Classes.Internal;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.function.BiFunction;
 /**
  * Iterable class that contains a list of neurons
  * 
