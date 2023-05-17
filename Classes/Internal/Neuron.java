@@ -1,7 +1,7 @@
 package Classes.Internal;
 
 public class Neuron {
-    private double [] weight;
+    private double[] weight;
     private double[] bias;
 
     public Neuron(double[] weight , double[] bias) {
@@ -24,4 +24,18 @@ public class Neuron {
        // this.weight += (input * error * lr);
        // this.bias += (error * lr);
     }
+
+    public double[] getWeights() {
+        return weight;
+    }
+    public double getWeightAtIndex(int index) {
+        return weight[index];
+    }
+    public double[] getBias() {
+        return weight;
+    }
+    public double getBiasAtIndex(int index) {
+        return weight[index];
+    }
+
 }
