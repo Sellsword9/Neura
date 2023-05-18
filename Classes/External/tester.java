@@ -17,8 +17,9 @@ public class tester {
         System.out.println(layer0.getAverageWeigth(input0layer0));
         System.out.println(layer0.getAverageOutput());
         //Let's train the neurons to output 10 (f=2x)
-        for (int i = 0; i < 100; i++) {
-        layer0.train(input0layer0, 10.0, 0.01);    
+        for (int i = 0; i < 1000; i++) {
+        layer0.train(input0layer0, 10.0, 0.01);   
+        System.out.println(layer0.getAverageOutput()); 
         }
         System.out.println(layer0.getAverageOutput());
         // Copy this: It worked 

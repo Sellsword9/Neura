@@ -1,11 +1,9 @@
 package Classes.Internal;
+import java.util.ArrayList;
+import java.util.List;
 /**
  * Represents the neural network
  */
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Neura {
     public List<NeuraLayer> layers;
 
