@@ -74,7 +74,15 @@ public class NeuraLayer implements Iterable<NeuraInput>{
         }
     }
 
-
-
+    public String toText(int layerIndex) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Layer " + layerIndex + ": + \n");
+        int neurons = 0;
+        for (Neuron n : neurons) {
+            neurons++;
+        }
+        sb.append("Neurons: " + neurons);
+        return sb.toString();
+    } 
 
 }
