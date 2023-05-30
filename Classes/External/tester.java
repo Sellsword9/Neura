@@ -24,6 +24,12 @@ public class tester {
         System.out.println(layer0.getAverageOutput());
         
         network.addLayer(new NeuraLayer(layer0.neuraInputs.get(0)));
+        NeuraLayer layer1 = network.layers.get(1);
+        layer1.addNeuron();
+        layer1.addNeuron();
+        layer1.addNeuron();
+        layer1.addNeuron();
+        layer1.addNeuron();
 
         System.out.println(network.toText());
     }
