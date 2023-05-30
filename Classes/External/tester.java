@@ -22,11 +22,9 @@ public class tester {
         System.out.println(layer0.getAverageOutput()); 
         }
         System.out.println(layer0.getAverageOutput());
-        // Copy this: It worked 
-        // TODO
-        // System works. What's left is integrating it with frmMain
-        // and then designing the Neural Network
-        // and then designing the dataset
-        // and then designing the training
+        
+        network.addLayer(new NeuraLayer(layer0.neuraInputs.get(0)));
+
+        System.out.println(network.toText());
     }
 }
