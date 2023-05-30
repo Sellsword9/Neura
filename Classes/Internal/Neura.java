@@ -1,6 +1,7 @@
 package Classes.Internal;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
 /**
  * Represents the neural network
  */
@@ -27,5 +28,22 @@ public class Neura {
         }
         return sb.toString();
     }
+
+    /**
+     * Saves the network to a file
+     * 
+     */
+    public void Save()
+    {
+        try {
+            File file = new java.io.File("network.txt");
+            PrintWriter output = new java.io.PrintWriter(file);
+            output.print(this.toText());
+            output.close();
+        } catch (Exception e) {
+            System.err.println("Error saving network");
+        }
+    }
+
 
 }
