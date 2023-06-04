@@ -32,5 +32,6 @@ public class tester {
         layer1.addNeuron();
 
         System.out.println(network.toText());
+        network.Save();
     }
 }
