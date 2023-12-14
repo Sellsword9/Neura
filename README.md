@@ -10,4 +10,4 @@
 Copyable:
 ```Java
 javac Classes/Internal/Neura.java;
-java Classes/Internal/Neura```
+java Classes/Internal/Neura ```
